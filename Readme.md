@@ -1,7 +1,7 @@
 ## 测试nodejs redis发布订阅模式性能及优化
 
 ____
-[https://github.com/websockets/ws/issues/804]
+[ws issues]https://github.com/websockets/ws/issues/804
 ____
 
 
