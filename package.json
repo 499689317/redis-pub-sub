@@ -1,0 +1,13 @@
+{
+  "name": "redis-pub-sub",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "redis": "^2.8.0",
+    "ws": "^7.2.0"
+  },
+  "devDependencies": {
+    "should": ">=0.0.1",
+    "mocha": ">=0.0.1"
+  }
+}

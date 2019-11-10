@@ -135,28 +135,23 @@ describe("ws test", function() {
 	});
 
 	it("---- test server client ------", function() {
-
-		// createClient("wss://push.miletest.com:9102");
-		// createClient("ws://127.0.0.1:9102");
 		
-		setInterval(function() {
-			createClient("ws://127.0.0.1:8080");
-		},100);
-		setInterval(function() {
-			createClient("ws://127.0.0.1:8080");
-		}, 200);
-		setInterval(function() {
-			createClient("ws://127.0.0.1:8080");
-		}, 300);
-		setInterval(function() {
-			createClient("ws://127.0.0.1:8080");
-		}, 400);
-		setInterval(function() {
-			createClient("ws://127.0.0.1:8080");
+		var client = new WebSocket("ws://127.0.0.1:8888");
+		client.on("open", function() {
+			console.log("open");
+			setInterval(function() {
+				client.send(JSON.stringify("client message to server" + Math.random()));
+			}, 1000);
 		});
-		setInterval(function() {
-			createClient("ws://127.0.0.1:8080");
-		}, 500);
+		client.on("message", function(data) {
+			console.log(data);
+		});
+		client.on("error", function(e) {
+			console.log("error", e);
+		});
+		client.on("close", function(e,d) {
+			console.log("close", e,d);
+		});
 	});
 	
 });
